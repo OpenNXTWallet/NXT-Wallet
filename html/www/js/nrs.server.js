@@ -273,7 +273,7 @@ var NRS = (function (NRS, $, undefined) {
         var secretPhrase = "";
         var isVolatile = isVolatileRequest(data.doNotSign, httpMethod, requestType, data.secretPhrase);
         if (NRS.isScheduleRequest(requestType)) {
-            data.adminPassword = NRS.settings.admin_password;
+            data.adminPassword = NRS.getAdminPassword();
             if (!extra) {
                 extra = {};
             }
@@ -382,7 +382,7 @@ var NRS = (function (NRS, $, undefined) {
             crossDomain: true,
             dataType: "json",
             type: httpMethod,
-            timeout: 30000,
+            timeout: (options.timeout === undefined ? 30000 : options.timeout),
             async: (options.isAsync === undefined ? true : options.isAsync),
             currentPage: currentPage,
             currentSubPage: currentSubPage,
@@ -1531,7 +1531,7 @@ var NRS = (function (NRS, $, undefined) {
         var data = {
             "transactionBytes": transactionData,
             "prunableAttachmentJSON": JSON.stringify(originalResponse.transactionJSON.attachment),
-            "adminPassword": NRS.settings.admin_password
+            "adminPassword": NRS.getAdminPassword()
         };
         if (isSchedule) {
             requestType = NRS.constants.SCHEDULE_PREFIX + requestType.substring(0, 1).toUpperCase() + requestType.substring(1);
@@ -1677,7 +1677,7 @@ var NRS = (function (NRS, $, undefined) {
     }
 
     return NRS;
-}(Object.assign(NRS || {}, isNode ? global.client : {}), jQuery));
+}(isNode ? client : NRS || {}, jQuery));
 
 if (isNode) {
     module.exports = NRS;

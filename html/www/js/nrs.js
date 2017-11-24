@@ -37,11 +37,10 @@
 var NRS = (function(NRS, $, undefined) {
 	"use strict";
 
-	NRS.client = "";
 	NRS.state = {};
 	NRS.blocks = [];
-	NRS.account = NRS.account ? NRS.account : "";
-	NRS.accountRS = NRS.accountRS ? NRS.accountRS : "";
+	NRS.account = "";
+	NRS.accountRS = "";
 	NRS.publicKey = "";
 	NRS.accountInfo = {};
 
@@ -374,14 +373,9 @@ var NRS = (function(NRS, $, undefined) {
     NRS.initClipboard = function() {
         var clipboard = new Clipboard('#copy_account_id');
         function onCopySuccess(e) {
-            NRS.logConsole('Action:' + e.action);
-            NRS.logConsole('Text:' + e.text);
-            NRS.logConsole('Trigger:' + e.trigger);
-
             $.growl($.t("success_clipboard_copy"), {
                 "type": "success"
             });
-
             e.clearSelection();
         }
         clipboard.on('success', onCopySuccess);
@@ -1639,17 +1633,15 @@ var NRS = (function(NRS, $, undefined) {
         downloadingBlockchain.find('.last_num_blocks').html($.t('last_num_blocks', { "blocks": lastNumBlocks }));
 
 		if (NRS.state.isLightClient) {
-			downloadingBlockchain.find(".db_active").hide();
-			downloadingBlockchain.find(".db_halted").hide();
-			downloadingBlockchain.find(".db_light").show();
+			downloadingBlockchain.hide();
 		} else if (!NRS.serverConnect || !NRS.peerConnect) {
+			downloadingBlockchain.show();
 			downloadingBlockchain.find(".db_active").hide();
 			downloadingBlockchain.find(".db_halted").show();
-			downloadingBlockchain.find(".db_light").hide();
 		} else {
+			downloadingBlockchain.show();
 			downloadingBlockchain.find(".db_halted").hide();
 			downloadingBlockchain.find(".db_active").show();
-			downloadingBlockchain.find(".db_light").hide();
 
 			var percentageTotal = 0;
 			var blocksLeft;
@@ -1822,7 +1814,7 @@ var NRS = (function(NRS, $, undefined) {
 	}
 
 	return NRS;
-}(Object.assign(NRS || {}, isNode ? global.client : {}), jQuery));
+}(isNode ? client : NRS || {}, jQuery));
 
 if (isNode) {
     module.exports = NRS;
