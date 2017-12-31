@@ -1,4 +1,4 @@
-# NXT Wallet: Version 1.11.11
+# NXT Wallet: Version 1.11.12
 
 For some Automations Processes we need the NXT Client on GitHub.
 Fell free to use it, to make things easier.
