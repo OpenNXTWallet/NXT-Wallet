@@ -5,17 +5,13 @@ Fell free to use it, to make things easier.
 
 If you do not trust this Repository, you can find the Actual Version here: https://nxt.org/download/
 
+You can find hosted Wallet under: https://zeus.open-nxt-wallet.eu:7876/
+
 # Attention
 We are NOT affiliated with, funded, or in any way associated with the organization known as NXT FOUNDATION.
 
-Nxt is an Open-Source Software. It is currently maintained by the Nxt Foundation and Nxt Core Developers, who have formed themselves around the Source-Code originally written by BCNext. 
-NXT FOUNDATION: https://www.nxtfoundation.io/
-NXT Core Developers: https://nxtforum.org/general-discussion/core-dev-recognition-guide-and-donation-addresses/msg140376/#msg140376
-BCNext: http://wiki.nxtcrypto.org/wiki/BCNext%27s_Plan
-
 ----
 
-----
 # Welcome to Nxt! #
 
 ----
