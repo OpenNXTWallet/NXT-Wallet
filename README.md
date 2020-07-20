@@ -1,17 +1,14 @@
-# NXT Wallet: Version 1.11.15
+# NXT Wallet: Version 1.12.2
 
 For some Automations Processes we need the NXT Client on GitHub.
 Fell free to use it, to make things easier.
 
 If you do not trust this Repository, you can find the Actual Version here: https://nxt.org/download/ or here: https://www.jelurida.com
 
-You can find hosted Wallet under: https://zeus.open-nxt-wallet.eu:7876/
-
 # Attention
 We are NOT affiliated with, funded, or in any way associated with the organization known as NXT FOUNDATION.
 
 ----
-
 # Welcome to Nxt! #
 
 ----
